@@ -1,5 +1,6 @@
 
 import type { Category, Product } from "../types/product";
+import SearchInput from "./search/SearchInput";
 
 async function getProducts(): Promise<Product[]> {
   "use cache";
@@ -47,11 +48,7 @@ export default async function Home() {
             Search products
           </h2>
 
-          <input
-            type="search"
-            placeholder="Search products..."
-            className="w-full rounded-md border border-gray-300 px-4 py-3 outline-none focus:border-gray-900"
-          />
+          <SearchInput />
         </section>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
