@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Third Charm Product Search Page
+
+A responsive product search page inspired by [Third Charm](https://thirdcharm.store/search), built as a take-home coding assignment using Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Product listing:** Displays product images, titles, prices, and the total product count.
+- **Search:** Searches products using the DummyJSON API and reflects the search query in the URL.
+- **Category navigation:** Fetches product categories from the API and allows users to browse products by category.
+- **Sorting:** Sorts products by relevance, price (low to high), price (high to low), and rating.
+- **Loading state:** Displays a loading message while products are loading.
+- **Error handling:** Provides an error message and a retry button if something goes wrong.
+- **Empty state:** Displays a message when no products match the search.
+- **Responsive design:** Adapts the layout to different screen sizes.
+
+## Technologies Used
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- DummyJSON Products API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+Navigate into the project directory:
+
+```bash
+cd my-app
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Product data and categories are provided by [DummyJSON](https://dummyjson.com/docs/products).
 
-## Learn More
+## AI Disclosure
 
-To learn more about Next.js, take a look at the following resources:
+AI assistance was used during development to help explain technical concepts, troubleshoot errors, and guide implementation. The code was tested and adjusted during development.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed as a take-home coding assignment.
