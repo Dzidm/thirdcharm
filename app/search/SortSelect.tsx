@@ -1,10 +1,11 @@
 
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function SortSelect() {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const currentSort = searchParams.get("sort") ?? "relevance";
@@ -13,8 +14,7 @@ export default function SortSelect() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("sort", event.target.value);
 
-    router.push(`/search?${params.toString()}`);
-  }
+    router.push(`${pathname}?${params.toString()}`);  }
 
   return (
     <select
