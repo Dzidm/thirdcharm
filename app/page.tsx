@@ -1,5 +1,5 @@
 
-import type { Product } from "../types/product";
+import type { Category, Product } from "../types/product";
 
 async function getProducts(): Promise<Product[]> {
   "use cache";
@@ -14,8 +14,24 @@ async function getProducts(): Promise<Product[]> {
   return data.products;
 }
 
+async function getCategories(): Promise<Category[]> {
+  "use cache";
+
+  const response = await fetch(
+    "https://dummyjson.com/products/categories"
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch categories");
+  }
+
+  return response.json();
+}
+
 export default async function Home() {
+
   const products = await getProducts();
+  const categories = await getCategories();
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -44,9 +60,18 @@ export default async function Home() {
               Browse by
             </h3>
 
-            <p className="text-sm text-gray-500">
-              Categories will appear here.
-            </p>
+          <ul className="space-y-3">
+              {categories.map((category) => (
+               <li key={category.slug}>
+                <a
+                  href={`/search/${category.slug}`}
+                  className="text-sm text-gray-600 hover:text-black"
+                >
+                  {category.name}
+                </a>
+              </li>
+            ))}
+          </ul>
           </aside>
 
           <section className="md:col-span-3">
