@@ -65,11 +65,11 @@ export default async function Home({ searchParams }: HomeProps) {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <Sidebar categories={categories} />
 
-          <section className="md:col-span-3">
+          <section className="md:col-span-3 md:">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-semibold">Products</h3>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 ">
                 <p className="text-sm text-gray-500">
                   {products.length} products
                 </p>
@@ -78,7 +78,7 @@ export default async function Home({ searchParams }: HomeProps) {
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {products.map((product) => (
+              {sortedProducts.map((product) => (
                 <article key={product.id}>
                   <img
                     src={product.thumbnail}

@@ -79,7 +79,7 @@ const categories = await getCategories();
             <div className="mb-4 flex items-center justify-between">
             <h3 className="text-lg font-semibold">Products</h3>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 sm:justify-">
                 <p className="text-sm text-gray-500">
                 {products.length} products
                 </p>
