@@ -3,6 +3,7 @@ import type { Category, Product } from "../types/product";
 import MenuBar from "../components/MenuBar";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 import SortSelect from "./search/SortSelect";
 
 async function getProducts(): Promise<Product[]> {
@@ -99,6 +100,7 @@ export default async function Home({ searchParams }: HomeProps) {
           </section>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

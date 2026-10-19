@@ -3,6 +3,7 @@ import type { Category, Product } from "../../../types/product";
 import Sidebar from "../../../components/Sidebar";
 import MenuBar from "../../../components/MenuBar";
 import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import SortSelect from "../SortSelect";
 
 
@@ -109,7 +110,7 @@ export default async function CategoryPage({
     </section>
   </div>
 </div>
-
+<Footer />
     </main>
   );
 }

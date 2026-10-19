@@ -3,7 +3,7 @@ import type { Category, Product } from "../../types/product";
 import Sidebar from "../../components/Sidebar";
 import MenuBar from "../../components/MenuBar";
 import Header from "../../components/Header";
-import SearchInput from "./SearchInput";
+import Footer from "../../components/Footer";
 import SortSelect from "./SortSelect";
 
 
@@ -117,6 +117,7 @@ const categories = await getCategories();
           </section>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
