@@ -1,6 +1,8 @@
 
 import type { Category, Product } from "../types/product";
-import SearchInput from "./search/SearchInput";
+import MenuBar from "../components/MenuBar";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 import SortSelect from "./search/SortSelect";
 
 async function getProducts(): Promise<Product[]> {
@@ -55,40 +57,13 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      <header className="border-b border-gray-200 px-6 py-5">
-        <h1 className="text-2xl font-bold tracking-wide">
-          THIRD CHARM
-        </h1>
-      </header>
+      <Header />
+      <MenuBar />
 
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <section className="mb-8">
-          <h2 className="mb-4 text-2xl font-semibold">
-            Search products
-          </h2>
-
-          <SearchInput />
-        </section>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <aside className="md:col-span-1">
-            <h3 className="mb-4 text-lg font-semibold">
-              Browse by
-            </h3>
-
-          <ul className="space-y-3">
-              {categories.map((category) => (
-               <li key={category.slug}>
-                <a
-                  href={`/search/${category.slug}`}
-                  className="text-sm text-gray-600 hover:text-black"
-                >
-                  {category.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-          </aside>
+          <Sidebar categories={categories} />
 
           <section className="md:col-span-3">
             <div className="mb-4 flex items-center justify-between">

@@ -1,6 +1,10 @@
 
 import type { Category, Product } from "../../../types/product";
+import Sidebar from "../../../components/Sidebar";
+import MenuBar from "../../../components/MenuBar";
+import Header from "../../../components/Header";
 import SortSelect from "../SortSelect";
+
 
 export const instant = false;
 
@@ -63,33 +67,13 @@ export default async function CategoryPage({
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      <header className="border-b border-gray-200 px-6 py-5">
-        <h1 className="text-2xl font-bold tracking-wide">
-          THIRD CHARM
-        </h1>
-      </header>
+      <Header/>
+      <MenuBar/>
 
       
 <div className="mx-auto max-w-7xl px-6 py-8">
   <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-    <aside className="md:col-span-1">
-      <h3 className="mb-4 text-lg font-semibold">
-        Browse by
-      </h3>
-
-      <ul className="space-y-3">
-        {categories.map((item) => (
-          <li key={item.slug}>
-            <a
-              href={`/search/${item.slug}`}
-              className="text-sm text-gray-600 hover:text-black"
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <Sidebar categories={categories} />
 
     <section className="md:col-span-3">
       <h2 className="mb-6 text-2xl font-semibold capitalize">

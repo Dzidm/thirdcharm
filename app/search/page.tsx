@@ -1,5 +1,8 @@
 
 import type { Category, Product } from "../../types/product";
+import Sidebar from "../../components/Sidebar";
+import MenuBar from "../../components/MenuBar";
+import Header from "../../components/Header";
 import SearchInput from "./SearchInput";
 import SortSelect from "./SortSelect";
 
@@ -65,40 +68,12 @@ const categories = await getCategories();
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      <header className="border-b border-gray-200 px-6 py-5">
-        <h1 className="text-2xl font-bold tracking-wide">
-          THIRD CHARM
-        </h1>
-      </header>
+      <Header />
+      <MenuBar />
 
       <div className="mx-auto max-w-7xl px-6 py-8">
-        <section className="mb-8">
-          <h2 className="mb-4 text-2xl font-semibold">
-            Search products
-          </h2>
-
-          <SearchInput />
-        </section>
-
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <aside className="md:col-span-1">
-            <h3 className="mb-4 text-lg font-semibold">
-              Browse by
-            </h3>
-            <ul className="space-y-3">
-             {categories.map((category) => (
-            <li key={category.slug}>
-            <a
-            href={`/search/${category.slug}`}
-            className="text-sm text-gray-600 hover:text-black"
-            >
-             {category.name}
-            </a>
-            </li>
-            ))}
-            </ul>
-          </aside>
-
+          <Sidebar categories={categories} />
           <section className="md:col-span-3">
             
             <div className="mb-4 flex items-center justify-between">
@@ -113,33 +88,31 @@ const categories = await getCategories();
             </div>
             </div>
 
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+          {sortedProducts.length === 0 ? (
+            <p className="col-span-full py-8 text-center text-gray-500">
+              No products found. Try another search.
+            </p>
+          ) : (
+            sortedProducts.map((product) => (
+              <article key={product.id}>
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="aspect-square w-full rounded-md bg-gray-100 object-cover"
+                />
 
-           
-<div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-  {sortedProducts.length === 0 ? (
-    <p className="col-span-full py-8 text-center text-gray-500">
-      No products found. Try another search.
-    </p>
-  ) : (
-    sortedProducts.map((product) => (
-      <article key={product.id}>
-        <img
-          src={product.thumbnail}
-          alt={product.title}
-          className="aspect-square w-full rounded-md bg-gray-100 object-cover"
-        />
+                <h4 className="mt-3 text-sm font-medium">
+                  {product.title}
+                </h4>
 
-        <h4 className="mt-3 text-sm font-medium">
-          {product.title}
-        </h4>
-
-        <p className="mt-1 text-sm text-gray-600">
-          ${product.price.toFixed(2)}
-        </p>
-      </article>
-    ))
-  )}
-</div>
+                <p className="mt-1 text-sm text-gray-600">
+                  ${product.price.toFixed(2)}
+                </p>
+              </article>
+            ))
+          )}
+        </div>
 
           </section>
         </div>
